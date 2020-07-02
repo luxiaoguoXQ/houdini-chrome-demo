@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conic</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 300px;
+        margin: 100px auto;
+        background: paint(conic-gradient, red magenta blue cyan lime yellow red);
+        border-radius: 3px;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost')
+        location.protocol = 'https:';
+    if ('paintWorklet' in CSS) {
+        CSS.paintWorklet.addModule('conic.js');
+    } else {
+        document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-paint-api/">CSS Paint API</a> to view this demo :(';
+    }
+</script>
+</html>

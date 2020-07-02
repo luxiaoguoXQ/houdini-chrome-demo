@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slanted</title>
+</head>
+<style>
+    .el span {
+        padding:5px 30px 5px 5px;
+        background: paint(slanted-bg);
+        display: block;
+    }
+</style>
+<body>
+    <div class="el">
+        <span>动态规划问世以来，在经济管理、生产调度、工程技术和最优控制等方面得到了广泛的应用</span>
+        <span>动态规划算法通常用于求解具有某种最优性质的问题</span>
+        <span>根据上例分析和动态规划的基本概念，可以得到动态规划的基本模型如下</span>
+        <span>任何思想方法都有一定的局限性，超出了特定条件，它就失去了作用</span>
+    </div>
+</body>
+<script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost')
+        location.protocol = 'https:';
+    if ('paintWorklet' in CSS) {
+        CSS.paintWorklet.addModule('slanted.js');
+    } else {
+        document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-paint-api/">CSS Paint API</a> to view this demo :(';
+    }
+</script>
+</html>

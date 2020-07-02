@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        background: linear-gradient(var(--bac-start-color), var(--bac-end-color));
+        transition: --bac-start-color 1s,
+                    --bac-end-color 1.5s;
+    }
+    .box:hover {
+        --bac-start-color: green;
+        --bac-end-color: violet;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    if ('registerProperty' in CSS) {
+        CSS.registerProperty({
+            name: "--bac-end-color",
+            syntax: "<color>",
+            initialValue: "blue",
+            inherits: false
+        })
+
+        CSS.registerProperty({
+            name: "--bac-start-color",
+            syntax: "<color>",
+            initialValue: "yellow",
+            inherits: false
+        })
+    } else {
+        console.warn('not support registerProperty')
+    }
+</script>
+</html>

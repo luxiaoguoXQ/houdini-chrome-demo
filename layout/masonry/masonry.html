@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>masonry</title>
+</head>
+<style>
+    body {
+        display: layout(masonry);
+        --padding: 20;
+        --columns: 3;
+    }
+
+    div {
+        background-color: hsl(0, 80%, 20%);
+        color: hsl(0, 80%, 95%);
+        font: 12px sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    div::first-letter {
+        font-size: 200%;
+    }
+</style>
+<body>
+    <div>1.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始发的42条公交线路；中心城区（含武汉东湖新技术开发区、武汉经济技术开发区）75条区域公交线路（含微循环公交线路</div>
+    <div>2.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始发的42条公交线路；中心城区（含武汉东湖新技术开发区、武汉经济技术开发区）</div>
+    <div>3.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始发的42条公交线路；中心城区（含武汉东湖新技术开发区</div>
+    <div>4.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始</div>
+    <div>5.据悉，今起恢复的公交线路</div>
+    <div>6.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始</div>
+    <div>7.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等三大火车站始发的42条公交线路；中心城区（含武汉东湖新技术开发区、武汉经济技术开发区）75条区域公交线路（含微循环公交线路</div>
+    <div>8.据悉，今起恢复的公交线路共计117条</div>
+    <div>9.据悉，今起恢复的公交线路共计117条，包括汉口、武昌、武汉等</div>
+</body>
+<script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost')
+        location.protocol = 'https:';
+    document.querySelectorAll('div').forEach(e => {
+        const t = e.textContent;
+        e.textContent = t.slice(0, Math.floor(Math.random() * (t.length - 10) + 10));
+    })
+
+    if ('layoutWorklet' in CSS) {
+        CSS.layoutWorklet.addModule('masonry.js');
+    } else {
+        document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-layout-api/">CSS Layout API</a> to view this demo :(';
+    }
+</script>
+</html>

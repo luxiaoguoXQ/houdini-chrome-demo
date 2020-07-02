@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circle</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+        --radius: 10px;
+        background: paint(circle);
+        transition: --radius 1s;
+    }
+
+    div:hover {
+        --radius: 50px;
+    }
+</style>
+<body>
+    <div></div>
+</body>
+<script>
+    if ('registerProperty' in CSS) {
+        CSS.registerProperty({
+            name: "--radius",
+            syntax: "<length>",
+            initialValue: "0px",
+            inherits: false
+        })
+    }
+    if (location.protocol === 'http:' && location.hostname !== 'localhost')
+        location.protocol = 'https:';
+    if ('paintWorklet' in CSS) {
+        CSS.paintWorklet.addModule('circle.js');
+    } else {
+        document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-paint-api/">CSS Paint API</a> to view this demo :(';
+    }
+</script>
+</html>
